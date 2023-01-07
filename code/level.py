@@ -59,9 +59,13 @@ class LevelCamera:
 
     def sprites_shift(self):
         offset = self.surf_vect - self.camera_vect
+        offset = pygame.math.Vector2((int(offset[0]), int(offset[1])))
         return offset
 
     def blit_sprites(self):
         offset = self.sprites_shift()
         for sprite in self.objects:
             self.surface.blit(sprite.image, sprite.rect.topleft + offset + pygame.math.Vector2(0, 64))
+
+    def change_target(self, target):
+        self.target = target
