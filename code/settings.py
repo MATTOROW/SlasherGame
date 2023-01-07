@@ -4,17 +4,19 @@ FPS = 60
 TILESIZE = 64
 
 LEVEL_MAP = [
-    'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-    'p                                       ',
-    'xxxxxx                                  ',
-    'xxxxxxxx                                ',
-    'xxxxxxxxxx                              ',
-    'xxxxxxxxxxxxxx     x                    ',
-    'xxxxxxxxxxxxxx     x                    ',
-    'xxxxxxxxxxxxxx     x                    ',
-    'xxxxxxxxxxxxxx     x                    ',
-    'xxxxxxxxxxxxxx     x                    ',
-    'xxxxxxxxxxxxxx     x                    ',
+    'x xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    'xp                                       x',
+    'x                                        x',
+    'xxxxxxxxx                                x',
+    'xxxxxxxxxxx                              x',
+    'xxxxxxxxxxxxxxx     x                    x',
+    'xxxxxxxxxxxxxxx     x                    x',
+    'xxxxxxxxxxxxxxx     x                    x',
+    'xxxxxxxxxxxxxxx     x                    x',
+    'xxxxxxxxxxxxxxxxxxxxxxxxx                x',
+    'xxxxxxxxxxxxxxxxxxxxxxxxxxxx            xx',
+    'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+
 ]
 
 LEVEL_WIDTH = len(LEVEL_MAP[0]) * TILESIZE

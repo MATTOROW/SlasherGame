@@ -27,12 +27,11 @@ class Level:
                 if col == 'x':
                     Tile((x, y), TILESIZE, [self.all_sprites, self.tile_group])
                 if col == 'p':
-                    player_spr = Player((x, y))
+                    player_spr = Player((x, y), self.tile_group, self.entities)
                     self.player.add(player_spr)
                     self.all_sprites.add(player_spr)
                     # Инициация камеры
                     self.camera = LevelCamera(self.player.sprite, self.all_sprites, self.display_surface)
-
 
     def update_level(self):
         # Обновление спрайтов
@@ -56,7 +55,7 @@ class LevelCamera:
 
     def update(self):
         self.heading = self.target.rect.center - self.camera_vect
-        self.camera_vect += self.heading * 0.05
+        self.camera_vect += self.heading * 0.08
 
     def sprites_shift(self):
         offset = self.surf_vect - self.camera_vect
