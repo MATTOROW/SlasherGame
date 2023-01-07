@@ -80,7 +80,7 @@ class Player(pygame.sprite.Sprite):
                     self.direction.x -= self.speed_decrement
                 elif not self.look_right and self.direction.x < 0:
                     self.direction.x += self.speed_decrement
-                if abs(self.direction.x) < 0.0001:
+                if abs(self.direction.x) < 0.01:
                     self.direction.x = 0
                 self.stop_running = True
             elif self.direction.x == 0:
