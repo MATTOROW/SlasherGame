@@ -37,7 +37,7 @@ class Level:
         # Обновление спрайтов
         self.player.update()
 
-        #Обновление камеры
+        # Обновление камеры
         self.camera.update()
         self.camera.sprites_shift()
         self.camera.blit_sprites()
