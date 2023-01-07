@@ -31,6 +31,13 @@ class Player(pygame.sprite.Sprite):
         self.on_left = False
         self.on_right = False
         self.stop_running = False
+        self.dashing = False
+
+        # Рывок игрока
+        self.dash_time = 3
+        self.dash_speed = 6
+        self.dash_cooldown = 50
+        self.dash_timer = 0
 
     def import_assets(self):
         path = '../sprites/player/'
@@ -55,26 +62,25 @@ class Player(pygame.sprite.Sprite):
                     self.status = 'run'
             else:
                 self.status = 'idle'
-        return self.status
 
     def get_input(self):
         keys = pygame.key.get_pressed()
 
-        if keys[pygame.K_d]:
+        if keys[pygame.K_d] and not self.dashing:
             if self.direction.x < 1:
                 self.direction.x += self.speed_decrement
             if self.direction.x > 1:
                 self.direction.x = 1
             self.look_right = True
             self.stop_running = False
-        elif keys[pygame.K_a]:
+        elif keys[pygame.K_a] and not self.dashing:
             if self.direction.x > -1:
                 self.direction.x -= self.speed_decrement
             if self.direction.x < -1:
                 self.direction.x = -1
             self.look_right = False
             self.stop_running = False
-        else:
+        elif not self.dashing:
             if self.direction.x != 0:
                 if self.look_right and self.direction.x > 0:
                     self.direction.x -= self.speed_decrement
@@ -89,13 +95,42 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_SPACE] and self.on_ground:
             self.jump()
 
+        if keys[pygame.K_LSHIFT] and not self.dash_timer:
+            self.dash()
+
     def jump(self):
         self.direction.y = self.jump_power
+
+    def dash(self):
+        self.dash_timer = self.dash_cooldown
+        if self.look_right:
+            self.direction.x = self.dash_speed
+        else:
+            self.direction.x = -self.dash_speed
+        self.direction.y = 0
+        self.dashing = True
+
+    def update_dash_time(self):
+        if self.dashing:
+            if self.dash_time:
+                self.dash_time -= 1
+            else:
+                self.dashing = False
+                if self.look_right:
+                    self.direction.x = 1
+                else:
+                    self.direction.x = -1
+
+    def update_dash_cooldown(self):
+        if self.dash_timer != 0:
+            self.dash_timer -= 1
+        if self.dash_timer == 0:
+            self.dash_time = 3
 
     def movement_collision(self, orientation):
         if orientation == 'hor':
             for sprite in self.bariers:
-                if pygame.sprite.collide_mask(self, sprite):
+                if sprite.rect.colliderect(self.rect):
                     if self.direction.x > 0:
                         self.rect.right = sprite.rect.left
                         self.on_right = True
@@ -112,7 +147,7 @@ class Player(pygame.sprite.Sprite):
                 self.on_right = False
         if orientation == 'ver':
             for sprite in self.bariers:
-                if pygame.sprite.collide_mask(self, sprite):
+                if sprite.rect.colliderect(self.rect):
                     if self.direction.y > 0:
                         self.rect.bottom = sprite.rect.top
                         self.direction.y = 0
@@ -143,7 +178,9 @@ class Player(pygame.sprite.Sprite):
 
     def update(self):
         self.get_input()
-        self.apply_gravity()
+        if not self.dashing:
+            self.apply_gravity()
         self.move(self.speed)
-        print(self.get_status())
+        self.update_dash_cooldown()
+        self.update_dash_time()
 
