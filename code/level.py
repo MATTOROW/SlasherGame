@@ -1,7 +1,9 @@
 import pygame
+from random import randint
 from settings import *
 from tile import Tile
 from player import Player
+from background_particles import BackgroundParticles
 
 
 class Level:
@@ -16,8 +18,12 @@ class Level:
         self.tile_group = pygame.sprite.Group()
         self.entities = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
+        self.background_part = pygame.sprite.Group()
 
         self.create_map()
+
+        for _ in range(randint(100, 500)):
+            self.create_background_part()
 
     def create_map(self):
         for r_index, row in enumerate(self.level_map):
@@ -33,6 +39,23 @@ class Level:
                     # Инициация камеры
                     self.camera = LevelCamera(self.player.sprite, self.all_sprites, self.display_surface)
 
+    def create_background_part(self):
+        player_x, player_y = self.player.sprite.get_current_pos()
+        display_width, display_height = self.display_surface.get_width(), self.display_surface.get_height()
+        borderl_x_left = player_x - display_width - 100
+        borderl_x_right = player_x + display_width // 2
+        borderl_y_top = player_y - display_height // 2
+        borderl_y_bottom = player_y + display_height // 2
+        borderb_y_bottom = player_y + display_height + 200
+        borderb_y_top = player_y + display_height // 2
+        broderr_x_left = player_x + display_width // 2
+        borderr_x_right = player_x + display_width + 100
+        bordert_y_bottom = player_y - display_height // 2
+        bordert_y_top = player_y - display_height - 200
+        LT_x_pos = randint(borderl_x_left, borderl_x_right)
+        LT_y_pos = randint(-bordert_y_bottom, -bordert_y_top)
+        BackgroundParticles([self.all_sprites, self.background_part], (LT_x_pos, LT_y_pos))
+
     def update_level(self):
         # Обновление спрайтов
         self.player.update()
@@ -41,6 +64,10 @@ class Level:
         self.camera.update()
         self.camera.sprites_shift()
         self.camera.blit_sprites()
+
+        self.create_background_part()
+        self.background_part.update()
+        print(self.player.sprite.get_current_pos())
 
 
 class LevelCamera:

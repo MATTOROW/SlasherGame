@@ -10,10 +10,9 @@ class Player(pygame.sprite.Sprite):
         self.import_assets()
         self.cur_frame = 0
         self.animation_speed = 0.15
-        self.image = pygame.Surface((32, 52))
+        self.image = pygame.Surface((32, 88))
         self.image.fill('red')
         self.rect = self.image.get_rect(topleft=pos)
-        self.mask = pygame.mask.from_surface(self.image)
 
         # Движение игрока
         self.cur_x_pos = 0
@@ -39,6 +38,7 @@ class Player(pygame.sprite.Sprite):
         self.dash_cooldown = 50
         self.dash_timer = 0
 
+    # Импорт спрайтов для анимаций
     def import_assets(self):
         path = '../sprites/player/'
         self.animations = {'idle': [], 'run': [], 'jump': [], 'fall': [], 'jump_to_fall': [], 'run_end': []}
@@ -47,6 +47,7 @@ class Player(pygame.sprite.Sprite):
             full_path = path + animation
             self.animations[animation] = import_folder(full_path)
 
+    # Получение статуса игрока
     def get_status(self):
         if self.direction.y < 0:
             self.status = 'jump'
@@ -63,6 +64,7 @@ class Player(pygame.sprite.Sprite):
             else:
                 self.status = 'idle'
 
+    # Получение нажатий клавиш и их обработка
     def get_input(self):
         keys = pygame.key.get_pressed()
 
@@ -98,9 +100,11 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_LSHIFT] and not self.dash_timer:
             self.dash()
 
+    # Функция прыжка
     def jump(self):
         self.direction.y = self.jump_power
 
+    # Функция рывка
     def dash(self):
         self.dash_timer = self.dash_cooldown
         if self.look_right:
@@ -110,6 +114,7 @@ class Player(pygame.sprite.Sprite):
         self.direction.y = 0
         self.dashing = True
 
+    # Функция обновления продолжительности рывка
     def update_dash_time(self):
         if self.dashing:
             if self.dash_time:
@@ -121,12 +126,14 @@ class Player(pygame.sprite.Sprite):
                 else:
                     self.direction.x = -1
 
+    # Функция обновления таймера перезарядки рывка
     def update_dash_cooldown(self):
         if self.dash_timer != 0:
             self.dash_timer -= 1
         if self.dash_timer == 0:
             self.dash_time = 3
 
+    # Проверка на столкновение с "землей"
     def movement_collision(self, orientation):
         if orientation == 'hor':
             for sprite in self.bariers:
@@ -161,6 +168,7 @@ class Player(pygame.sprite.Sprite):
             if self.on_ceiling and self.direction.y > 0:
                 self.on_ceiling = False
 
+    # Функция передвижения
     def move(self, speed):
         if self.on_ground or self.on_ceiling:
             self.rect.x += self.direction.x * speed
@@ -173,9 +181,11 @@ class Player(pygame.sprite.Sprite):
             self.rect.x += self.direction.x * speed
             self.movement_collision('hor')
 
+    # Функция гравитации игрока
     def apply_gravity(self):
         self.direction.y += self.gravity
 
+    # Обновление даннных игрока
     def update(self):
         self.get_input()
         if not self.dashing:
@@ -184,3 +194,5 @@ class Player(pygame.sprite.Sprite):
         self.update_dash_cooldown()
         self.update_dash_time()
 
+    def get_current_pos(self):
+        return self.rect.topleft
