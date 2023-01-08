@@ -60,14 +60,13 @@ class Level:
         # Обновление спрайтов
         self.player.update()
 
+        self.create_background_part()
+        self.background_part.update()
+
         # Обновление камеры
         self.camera.update()
         self.camera.sprites_shift()
         self.camera.blit_sprites()
-
-        self.create_background_part()
-        self.background_part.update()
-        print(self.player.sprite.get_current_pos())
 
 
 class LevelCamera:
@@ -82,7 +81,7 @@ class LevelCamera:
 
     def update(self):
         self.heading = self.target.rect.center - self.camera_vect
-        self.camera_vect += self.heading * 0.08
+        self.camera_vect += self.heading * 0.04
 
     def sprites_shift(self):
         offset = self.surf_vect - self.camera_vect
