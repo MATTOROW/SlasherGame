@@ -16,7 +16,7 @@ class Player(pygame.sprite.Sprite):
         # Движение игрока
         self.cur_x_pos = 0
         self.direction = pygame.math.Vector2()
-        self.speed = 7
+        self.speed = 6
         self.speed_decrement = 0.05
         self.gravity = 0.7
         self.jump_power = -21
@@ -80,7 +80,10 @@ class Player(pygame.sprite.Sprite):
             elif self.on_left:
                 self.rect = self.image.get_rect(left=self.rect.left, centery=self.rect.centery)
             else:
-                self.rect = self.image.get_rect(centerx=self.rect.centerx, centery=self.rect.centery)
+                if self.look_right:
+                    self.rect = self.image.get_rect(left=self.rect.left, centery=self.rect.centery)
+                else:
+                    self.rect = self.image.get_rect(right=self.rect.right, centery=self.rect.centery)
 
     # Получение статуса игрока
     def get_status(self):
@@ -213,7 +216,6 @@ class Player(pygame.sprite.Sprite):
         self.get_input()
         if not self.dashing:
             self.apply_gravity()
-        print(self.on_left, self.on_right, self.on_ground)
         self.move(self.speed)
         self.get_status()
         self.animate()
