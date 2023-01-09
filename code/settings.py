@@ -6,7 +6,7 @@ TILESIZE = 64
 LEVEL_MAP = [
     ' x xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
     ' xp            x                          x',
-    ' x             x                          x',
+    ' xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
     ' xxxxxxxxx     x                          x',
     ' xxxxxxxxxxx   x                          x',
     ' xxxxxxxxxxxxxxx     x                    x',

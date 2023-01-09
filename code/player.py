@@ -7,6 +7,7 @@ class Player(pygame.sprite.Sprite):
         super().__init__()
         self.bariers = bariers
         self.enemies = enemies
+        self.animations = None
         self.import_assets()
         self.cur_frame = 0
         self.animation_speed = 0.15
@@ -20,6 +21,7 @@ class Player(pygame.sprite.Sprite):
         self.speed_decrement = 0.05
         self.gravity = 0.7
         self.jump_power = -21
+        self.double_jump = True
 
         # Статус игрока
         self.status = 'idle'
@@ -32,15 +34,17 @@ class Player(pygame.sprite.Sprite):
         self.dashing = False
 
         # Рывок игрока
-        self.dash_time = 3
+        self.dash_time = 5
         self.dash_speed = 6
         self.dash_cooldown = 50
-        self.dash_timer = 0
+        self.dash_cd_timer = 0
+        self.dash_timer = self.dash_time
 
     # Импорт спрайтов для анимаций
     def import_assets(self):
         path = '../sprites/player/'
-        self.animations = {'idle': [], 'run': [], 'jump': [], 'fall': [], 'jump_to_fall': [], 'run_end': []}
+        self.animations = {'idle': [], 'run': [], 'jump': [], 'fall': [], 'jump_to_fall': [], 'run_end': [],
+                           'dash_g': [], 'dash_a': []}
 
         for animation in self.animations.keys():
             full_path = path + animation
@@ -84,14 +88,20 @@ class Player(pygame.sprite.Sprite):
                     self.rect = self.image.get_rect(left=self.rect.left, centery=self.rect.centery)
                 else:
                     self.rect = self.image.get_rect(right=self.rect.right, centery=self.rect.centery)
+        self.image.fill('red')
 
     # Получение статуса игрока
     def get_status(self):
-        if self.direction.y < 0:
+        if self.dashing:
+            if self.on_ground:
+                self.status = 'dash_g'
+            else:
+                self.status = 'dash_a'
+        elif self.direction.y < 0:
             self.status = 'jump'
         elif self.direction.y > 6:
             self.status = 'fall'
-        elif 1 < self.direction.y < 6:
+        elif 2 < self.direction.y < 6:
             self.status = 'jump_to_fall'
         else:
             if self.direction.x != 0 and self.on_ground:
@@ -101,6 +111,7 @@ class Player(pygame.sprite.Sprite):
                     self.status = 'run'
             else:
                 self.status = 'idle'
+        return self.status
 
     # Получение нажатий клавиш и их обработка
     def get_input(self):
@@ -129,7 +140,7 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_SPACE] and self.on_ground:
             self.jump()
 
-        if keys[pygame.K_LSHIFT] and not self.dash_timer:
+        if keys[pygame.K_LSHIFT] and not self.dash_cd_timer:
             self.dash()
 
     # Функция прыжка
@@ -138,7 +149,8 @@ class Player(pygame.sprite.Sprite):
 
     # Функция рывка
     def dash(self):
-        self.dash_timer = self.dash_cooldown
+        self.dash_cd_timer = self.dash_cooldown
+        self.dash_timer = self.dash_time
         if self.look_right:
             self.direction.x = self.dash_speed
         else:
@@ -149,9 +161,9 @@ class Player(pygame.sprite.Sprite):
     # Функция обновления продолжительности рывка
     def update_dash_time(self):
         if self.dashing:
-            if self.dash_time:
-                self.dash_time -= 1
-            else:
+            if self.dash_timer:
+                self.dash_timer -= 1
+            if self.dash_timer == 0:
                 self.dashing = False
                 if self.look_right:
                     self.direction.x = 1
@@ -160,10 +172,10 @@ class Player(pygame.sprite.Sprite):
 
     # Функция обновления таймера перезарядки рывка
     def update_dash_cooldown(self):
-        if self.dash_timer != 0:
-            self.dash_timer -= 1
-        if self.dash_timer == 0:
-            self.dash_time = 3
+        if self.dash_cd_timer != 0:
+            self.dash_cd_timer -= 1
+        if self.dash_cd_timer == 0:
+            self.dash_timer = self.dash_time
 
     # Проверка на столкновение с "землей"
     def movement_collision(self, orientation):
@@ -179,8 +191,9 @@ class Player(pygame.sprite.Sprite):
                         self.on_left = True
                         self.cur_x_pos = self.rect.left
                     self.dashing = False
-                    self.dash_time = 0
+                    self.dash_timer = 0
                     self.direction.x = 0
+                    print('yes')
             if self.on_left and (self.rect.left < self.cur_x_pos or self.direction.x > 0):
                 self.on_left = False
             if self.on_right and (self.rect.right > self.cur_x_pos or self.direction.x < 0):
@@ -189,8 +202,13 @@ class Player(pygame.sprite.Sprite):
             for sprite in self.bariers:
                 if sprite.rect.colliderect(self.rect):
                     if self.direction.y > 0:
-                        self.rect.bottom = sprite.rect.top
-                        self.on_ground = True
+                        if self.rect.bottom < sprite.rect.bottom:
+                            self.rect.bottom = sprite.rect.top
+                            self.on_ground = True
+                            self.double_jump = True
+                        else:
+                            self.rect.top = sprite.rect.bottom
+                            self.on_ceiling = True
                     if self.direction.y < 0:
                         self.rect.top = sprite.rect.bottom
                         self.on_ceiling = True
@@ -219,6 +237,7 @@ class Player(pygame.sprite.Sprite):
         self.move(self.speed)
         self.get_status()
         self.animate()
+        print(self.direction)
         self.update_dash_cooldown()
         self.update_dash_time()
 
