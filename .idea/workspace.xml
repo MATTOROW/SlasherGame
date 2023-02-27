@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ce3702dd-d444-496c-9f82-5eaeb6e3b205" name="Changes" comment="Last commit." />
+    <list default="true" id="ce3702dd-d444-496c-9f82-5eaeb6e3b205" name="Changes" comment="Last commit (new files)." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,10 +14,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/Nikita_dev" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="development" />
+        <entry key="$PROJECT_DIR$" value="Nikita_dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,7 +79,7 @@
       <workItem from="1673350211564" duration="279000" />
       <workItem from="1673351976247" duration="128000" />
       <workItem from="1673360866257" duration="1830000" />
-      <workItem from="1677499467978" duration="584000" />
+      <workItem from="1677499467978" duration="730000" />
     </task>
     <task id="LOCAL-00001" summary="Setting up main python files of game.">
       <created>1672748919597</created>
@@ -176,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677499816040</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Last commit (new files).">
+      <created>1677500059054</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1677500059054</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +229,8 @@
     <MESSAGE value="Updating collision system. Find out the reasons why at a speed of 5 or less collision system crushes. Need to update: Bacground_particles spawn and movement, dash animations." />
     <MESSAGE value="Adding assets files. Trying to upgrade collision system and background particles movement." />
     <MESSAGE value="Last commit." />
-    <option name="LAST_COMMIT_MESSAGE" value="Last commit." />
+    <MESSAGE value="Last commit (new files)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Last commit (new files)." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SlasherGame$gif_splitter.coverage" NAME="gif_splitter Coverage Results" MODIFIED="1673350414697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
