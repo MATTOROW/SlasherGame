@@ -3,8 +3,8 @@ from import_anim import import_folder
 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, pos, bariers, enemies):
-        super().__init__()
+    def __init__(self, pos, bariers, enemies, group):
+        super().__init__(group)
         self.bariers = bariers
         self.enemies = enemies
         self.animations = None
@@ -63,7 +63,7 @@ class Player(pygame.sprite.Sprite):
         else:
             self.image = pygame.transform.flip(temp, True, False)
 
-        # Обновление маски и rect
+        # Обновление rect
         if self.on_ground:
             if self.on_right:
                 self.rect = self.image.get_rect(right=self.rect.right, bottom=self.rect.bottom)
@@ -88,16 +88,15 @@ class Player(pygame.sprite.Sprite):
                     self.rect = self.image.get_rect(left=self.rect.left, centery=self.rect.centery)
                 else:
                     self.rect = self.image.get_rect(right=self.rect.right, centery=self.rect.centery)
-        self.image.fill('red')
 
     # Получение статуса игрока
     def get_status(self):
-        if self.dashing:
-            if self.on_ground:
-                self.status = 'dash_g'
-            else:
-                self.status = 'dash_a'
-        elif self.direction.y < 0:
+        # if self.dashing:
+        #     if self.on_ground:
+        #         self.status = 'dash_g'
+        #     else:
+        #         self.status = 'dash_a'
+        if self.direction.y < 0:
             self.status = 'jump'
         elif self.direction.y > 6:
             self.status = 'fall'
@@ -183,9 +182,10 @@ class Player(pygame.sprite.Sprite):
             for sprite in self.bariers:
                 if sprite.rect.colliderect(self.rect):
                     if self.direction.x > 0:
-                        self.rect.right = sprite.rect.left
-                        self.on_right = True
-                        self.cur_x_pos = self.rect.right
+                        if self.rect.right < sprite.rect.right:
+                            self.rect.right = sprite.rect.left
+                            self.on_right = True
+                            self.cur_x_pos = self.rect.right
                     if self.direction.x < 0:
                         self.rect.left = sprite.rect.right
                         self.on_left = True
@@ -193,7 +193,6 @@ class Player(pygame.sprite.Sprite):
                     self.dashing = False
                     self.dash_timer = 0
                     self.direction.x = 0
-                    print('yes')
             if self.on_left and (self.rect.left < self.cur_x_pos or self.direction.x > 0):
                 self.on_left = False
             if self.on_right and (self.rect.right > self.cur_x_pos or self.direction.x < 0):
@@ -237,7 +236,6 @@ class Player(pygame.sprite.Sprite):
         self.move(self.speed)
         self.get_status()
         self.animate()
-        print(self.direction)
         self.update_dash_cooldown()
         self.update_dash_time()
 

@@ -33,9 +33,7 @@ class Level:
                 if col == 'x':
                     Tile((x, y), TILESIZE, [self.all_sprites, self.tile_group])
                 if col == 'p':
-                    player_spr = Player((x, y), self.tile_group, self.entities)
-                    self.player.add(player_spr)
-                    self.all_sprites.add(player_spr)
+                    player_spr = Player((x, y), self.tile_group, self.entities, [self.player, self.all_sprites])
                     # Инициация камеры
                     self.camera = LevelCamera(self.player.sprite, self.all_sprites, self.display_surface)
 
@@ -66,7 +64,6 @@ class Level:
         # Обновление камеры
         self.camera.update()
         self.camera.sprites_shift()
-        self.camera.blit_sprites()
 
 
 class LevelCamera:
