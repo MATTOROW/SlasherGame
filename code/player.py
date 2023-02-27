@@ -88,16 +88,16 @@ class Player(pygame.sprite.Sprite):
                     self.rect = self.image.get_rect(left=self.rect.left, centery=self.rect.centery)
                 else:
                     self.rect = self.image.get_rect(right=self.rect.right, centery=self.rect.centery)
-        self.image.fill('red')
+        # self.image.fill('red')
 
     # Получение статуса игрока
     def get_status(self):
-        if self.dashing:
-            if self.on_ground:
-                self.status = 'dash_g'
-            else:
-                self.status = 'dash_a'
-        elif self.direction.y < 0:
+        # if self.dashing:
+        #     if self.on_ground:
+        #         self.status = 'dash_g'
+        #     else:
+        #         self.status = 'dash_a'
+        if self.direction.y < 0:
             self.status = 'jump'
         elif self.direction.y > 6:
             self.status = 'fall'
@@ -220,6 +220,8 @@ class Player(pygame.sprite.Sprite):
 
     # Функция передвижения
     def move(self, speed):
+        # self.rect.y += self.direction.y
+        # self.movement_collision('ver')
         self.rect.x += self.direction.x * speed
         self.movement_collision('hor')
         self.rect.y += self.direction.y
