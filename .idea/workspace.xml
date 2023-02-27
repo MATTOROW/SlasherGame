@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ce3702dd-d444-496c-9f82-5eaeb6e3b205" name="Changes" comment="Last commit." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="development" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2JMvb7Bpzt8KzQxvNoHmtbrBeOh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Никита/Documents/IT/python/Ялицей/SlasherGame"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ce3702dd-d444-496c-9f82-5eaeb6e3b205" name="Changes" comment="" />
+      <created>1671900834906</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671900834906</updated>
+      <workItem from="1671900836049" duration="525000" />
+      <workItem from="1671901365833" duration="24000" />
+      <workItem from="1671901396308" duration="255000" />
+      <workItem from="1671903457169" duration="1208000" />
+      <workItem from="1672663347047" duration="14000" />
+      <workItem from="1672748574404" duration="991000" />
+      <workItem from="1672844759801" duration="864000" />
+      <workItem from="1672928807680" duration="18981000" />
+      <workItem from="1672989737545" duration="3762000" />
+      <workItem from="1672995291828" duration="204000" />
+      <workItem from="1672995502394" duration="8484000" />
+      <workItem from="1673004451006" duration="107000" />
+      <workItem from="1673011310702" duration="3718000" />
+      <workItem from="1673020654454" duration="5434000" />
+      <workItem from="1673083715720" duration="11039000" />
+      <workItem from="1673101120462" duration="4274000" />
+      <workItem from="1673106559358" duration="66000" />
+      <workItem from="1673174743642" duration="4776000" />
+      <workItem from="1673183737534" duration="179000" />
+      <workItem from="1673194337450" duration="5916000" />
+      <workItem from="1673200307601" duration="1785000" />
+      <workItem from="1673202126552" duration="2436000" />
+      <workItem from="1673264769356" duration="3410000" />
+      <workItem from="1673272939454" duration="5191000" />
+      <workItem from="1673283269854" duration="764000" />
+      <workItem from="1673350211564" duration="279000" />
+      <workItem from="1673351976247" duration="128000" />
+      <workItem from="1673360866257" duration="1830000" />
+      <workItem from="1677499467978" duration="584000" />
+    </task>
+    <task id="LOCAL-00001" summary="Setting up main python files of game.">
+      <created>1672748919597</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1672748919597</updated>
+    </task>
+    <task id="LOCAL-00002" summary="First commit.">
+      <created>1672844994011</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1672844994011</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adding level map creation from map data, smooth camera movement.">
+      <created>1672947613011</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1672947613011</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Adding player movement, animation, collisions.">
+      <created>1673085863993</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1673085863993</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Adding a frogotten file.">
+      <created>1673092219657</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1673092219657</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Adding a frogotten file.">
+      <created>1673092826781</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673092826781</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Intermediate commit.">
+      <created>1673093541403</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673093541403</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Adding dash to player.">
+      <created>1673104234931</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1673104234931</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Debugging dash.">
+      <created>1673105221602</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1673105221602</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Intermediate commit 2.">
+      <created>1673194382145</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1673194382145</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Intermediate commit 3. Need to update collision system.">
+      <created>1673202068729</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1673202068729</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Updating collision system. Find out the reasons why at a speed of 5 or less collision system crushes. Need to update: Bacground_particles spawn and movement, dash animations.">
+      <created>1673202776246</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1673202776246</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Adding assets files. Trying to upgrade collision system and background particles movement.">
+      <created>1673273261484</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1673273261484</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Last commit.">
+      <created>1677499816040</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1677499816040</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Setting up main python files of game." />
+    <MESSAGE value="First commit." />
+    <MESSAGE value="Adding level map creation from map data, smooth camera movement." />
+    <MESSAGE value="Adding player movement, animation, collisions." />
+    <MESSAGE value="Adding a frogotten file." />
+    <MESSAGE value="Intermediate commit." />
+    <MESSAGE value="Adding dash to player." />
+    <MESSAGE value="Debugging dash." />
+    <MESSAGE value="Intermediate commit 2." />
+    <MESSAGE value="Intermediate commit 3. Need to update collision system." />
+    <MESSAGE value="Updating collision system. Find out the reasons why at a speed of 5 or less collision system crushes. Need to update: Bacground_particles spawn and movement, dash animations." />
+    <MESSAGE value="Adding assets files. Trying to upgrade collision system and background particles movement." />
+    <MESSAGE value="Last commit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Last commit." />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SlasherGame$gif_splitter.coverage" NAME="gif_splitter Coverage Results" MODIFIED="1673350414697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SlasherGame$main.coverage" NAME="main Coverage Results" MODIFIED="1677499506563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
+    <SUITE FILE_PATH="coverage/SlasherGame$settings.coverage" NAME="settings Coverage Results" MODIFIED="1673002975357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
+    <SUITE FILE_PATH="coverage/SlasherGame$player.coverage" NAME="player Coverage Results" MODIFIED="1673277655939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
+    <SUITE FILE_PATH="coverage/SlasherGame$level.coverage" NAME="level Coverage Results" MODIFIED="1673177295118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
+  </component>
+</project>
